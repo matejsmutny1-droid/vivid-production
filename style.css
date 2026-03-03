@@ -158,3 +158,14 @@ font-size:20px;
 padding-top:80px;
 }
 }
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.55));
+pointer-events:none;
+}
+
+.hero{
+position:relative;
+}
