@@ -6,7 +6,7 @@
 
 <title>Vivid Production s.r.o.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -14,8 +14,11 @@
 <body>
 
 <header>
-  <h1>Vivid Production</h1>
-  <nav>
+  <h1 class="logo">Vivid Production</h1>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+
+  <nav id="navMenu">
     <a href="#about">O nás</a>
     <a href="#services">Služby</a>
     <a href="fakturacne-udaje.html">Fakturačné údaje</a>
@@ -24,92 +27,58 @@
 </header>
 
 <section class="hero">
-  <div class="hero-overlay">
+  <div class="hero-content">
     <h2>Creative Production & Digital Content</h2>
     <p>Umenie • Produkcia • Digitálne riešenia</p>
   </div>
 </section>
 
-<!-- O NAS -->
-<section id="about" class="section dark">
+<section id="about" class="section dark reveal">
 <h2>O nás</h2>
 
 <p>
 Vivid Production s.r.o. sme založili v roku 2026 s cieľom vytvárať moderný,
-autentický a vizuálne silný obsah pre značky, umelcov a projekty,
-ktoré chcú komunikovať prirodzene a profesionálne.
+autentický a vizuálne silný obsah pre značky a umelcov.
 </p>
 
 <p>
-Spájame umelecký prístup s technickým know-how a zastrešujeme kompletnú
-kreatívnu produkciu — od prvotného konceptu až po finálnu realizáciu.
+Pôsobíme na Slovensku, v Česku a v krajinách Škandinávie,
+kde prepájame umelecký prístup s profesionálnou produkciou.
 </p>
 
-<p>
-Pôsobíme najmä na trhu na Slovensku, v Českej republike a v krajinách
-Škandinávie, kde prepájame lokálnu autenticitu s medzinárodným vizuálnym štandardom.
-</p>
-
-<p>
-Veríme v jednoduchosť, kvalitné remeslo a osobný prístup.
-Každý projekt vnímame individuálne a vytvárame obsah,
-ktorý má atmosféru, charakter a dlhodobú hodnotu.
-</p>
 </section>
 
-<!-- SLUZBY -->
-<section id="services" class="section">
+<section id="services" class="section reveal">
+
 <h2>Služby</h2>
 
 <div class="service-grid">
 
 <div class="service-card">
 <h3>Umelecká produkcia</h3>
-<p>
-Zastrešujeme kompletnú umeleckú produkciu —
-koncerty, kultúrne projekty, tanečné vystúpenia,
-umelecké realizácie aj firemné eventy.
-</p>
-<p>
-Realizujeme umelecké portréty,
-rodinné fotografovanie a vizuálnu dokumentáciu projektov.
-</p>
+<p>Koncerty, kultúrne podujatia, firemné eventy, umelecké projekty a fotografovanie.</p>
 </div>
 
 <div class="service-card">
 <h3>Digital & Content</h3>
-<p>
-Vytvárame digitálny obsah pre značky —
-produktová fotografia, event content,
-kampane pre sociálne siete a marketing.
-</p>
-<p>
-Navrhujeme webové stránky,
-spravujeme sociálne siete
-a budujeme vizuálnu identitu online komunikácie.
-</p>
+<p>Tvorba contentu, fotografia produktov, webstránky a správa sociálnych sietí.</p>
 </div>
 
 <div class="service-card">
 <h3>Individuálne riešenia</h3>
-<p>
-Každý projekt je jedinečný.
-Preto navrhujeme riešenia na mieru —
-od kreatívnej konzultácie až po kompletnú realizáciu.
-</p>
-<p>
-Radi spolupracujeme na dlhodobých aj jednorazových projektoch.
-</p>
+<p>Komplexné kreatívne riešenia na mieru podľa potrieb klienta.</p>
 </div>
 
 </div>
 </section>
 
-<section id="contact" class="section dark">
+<section id="contact" class="section dark reveal">
 <h2>Kontakt</h2>
 <p>info@vividproduction.sk</p>
 <p>© 2026 Vivid Production s.r.o.</p>
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
