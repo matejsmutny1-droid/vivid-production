@@ -6,39 +6,46 @@ box-sizing:border-box;
 
 body{
 font-family:'Montserrat',sans-serif;
-background:#0f0f0f;
+background:#0e0e0e;
 color:white;
 overflow-x:hidden;
 }
 
-/* HEADER */
+h1,h2,h3{
+font-family:'Playfair Display',serif;
+}
 
 header{
 position:fixed;
+top:0;
 width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 24px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(14px);
 z-index:1000;
 }
 
 .logo{
-font-family:'Playfair Display',serif;
 font-size:22px;
 }
 
 nav{
 display:flex;
-gap:25px;
+gap:26px;
 }
 
 nav a{
-color:white;
 text-decoration:none;
+color:white;
 opacity:.8;
+transition:.3s;
+}
+
+nav a:hover{
+opacity:1;
 }
 
 .menu-toggle{
@@ -47,8 +54,6 @@ font-size:28px;
 cursor:pointer;
 }
 
-/* HERO */
-
 .hero{
 height:100vh;
 display:flex;
@@ -56,19 +61,19 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:20px;
-
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.7)),
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),
 url("images/hero.jpg") center/cover no-repeat;
 }
 
-.hero h2{
-font-family:'Playfair Display',serif;
-font-size:clamp(28px,6vw,52px);
-margin-bottom:10px;
+.hero-inner{
+animation:fadeUp 1.2s ease forwards;
 }
 
-/* SECTIONS */
+.hero h1{
+font-size:clamp(30px,6vw,54px);
+margin-bottom:12px;
+}
 
 .section{
 padding:110px 20px;
@@ -81,30 +86,26 @@ text-align:center;
 background:#181818;
 }
 
-/* SERVICES */
-
-.service-grid{
+.cards{
 display:flex;
 flex-wrap:wrap;
-gap:25px;
+gap:26px;
 justify-content:center;
 margin-top:40px;
 }
 
-.service-card{
+.card{
 background:#1c1c1c;
 padding:30px;
 border-radius:14px;
 max-width:300px;
-transition:.3s;
+transition:.35s;
 }
 
-.service-card:hover{
+.card:hover{
 transform:translateY(-8px);
 background:#242424;
 }
-
-/* SCROLL REVEAL */
 
 .reveal{
 opacity:0;
@@ -117,7 +118,16 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* MOBILE */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 
 @media(max-width:768px){
 
@@ -140,12 +150,11 @@ nav.active{
 display:flex;
 }
 
-.hero{
-padding-top:80px;
-}
-
 .logo{
 font-size:20px;
 }
 
+.hero{
+padding-top:80px;
+}
 }
