@@ -1,18 +1,15 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Montserrat',sans-serif;
-background:#0e0e0e;
+margin:0;
+font-family:'Inter',sans-serif;
+background:#0d0d0d;
 color:white;
-overflow-x:hidden;
+line-height:1.8;
+-webkit-font-smoothing:antialiased;
 }
 
 h1,h2,h3{
 font-family:'Playfair Display',serif;
+margin:0;
 }
 
 header{
@@ -22,36 +19,27 @@ width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 24px;
-background:rgba(0,0,0,.6);
-backdrop-filter:blur(14px);
+padding:22px 40px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
 z-index:1000;
 }
 
 .logo{
-font-size:22px;
-}
-
-nav{
-display:flex;
-gap:26px;
+font-size:20px;
+letter-spacing:1px;
 }
 
 nav a{
-text-decoration:none;
 color:white;
-opacity:.8;
+text-decoration:none;
+margin-left:28px;
+opacity:.7;
 transition:.3s;
 }
 
 nav a:hover{
 opacity:1;
-}
-
-.menu-toggle{
-display:none;
-font-size:28px;
-cursor:pointer;
 }
 
 .hero{
@@ -60,166 +48,106 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:20px;
 background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75)),
-url("images/hero.jpg") center/cover no-repeat;
-}
-
-.hero-inner{
-animation:fadeUp 1.2s ease forwards;
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.7)),
+url("hero.jpg") center/cover no-repeat;
 }
 
 .hero h1{
-font-size:clamp(30px,6vw,54px);
-margin-bottom:12px;
+font-size:56px;
+line-height:1.15;
+letter-spacing:1px;
+}
+
+.hero p{
+margin-top:20px;
+letter-spacing:3px;
+opacity:.85;
 }
 
 .section{
-padding:110px 20px;
+padding:120px 20px;
 max-width:900px;
 margin:auto;
 text-align:center;
 }
 
 .dark{
-background:#181818;
+background:#141414;
 }
 
-.cards{
+.section h2{
+font-size:40px;
+margin-bottom:30px;
+}
+
+.services{
 display:flex;
+gap:30px;
 flex-wrap:wrap;
-gap:26px;
 justify-content:center;
 margin-top:40px;
 }
 
 .card{
-background:#1c1c1c;
-padding:30px;
+background:#1b1b1b;
+padding:40px;
 border-radius:14px;
-max-width:300px;
+max-width:280px;
 transition:.35s;
 }
 
 .card:hover{
 transform:translateY(-8px);
-background:#242424;
+background:#222;
 }
 
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
+.card h3{
+margin-bottom:15px;
 }
 
-.reveal.active{
-opacity:1;
-transform:translateY(0);
+.email{
+color:white;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,.4);
+padding-bottom:4px;
 }
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(30px);
+.contact{
+padding-bottom:160px;
 }
-to{
-opacity:1;
-transform:translateY(0);
+
+.floating{
+position:fixed;
+right:25px;
+bottom:25px;
+background:white;
+color:black;
+padding:14px 24px;
+border-radius:30px;
+text-decoration:none;
+font-size:14px;
+letter-spacing:1px;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+transition:.3s;
 }
+
+.floating:hover{
+transform:translateY(-4px);
 }
 
 @media(max-width:768px){
 
-.menu-toggle{
-display:block;
+.hero h1{
+font-size:36px;
 }
 
 nav{
-position:absolute;
-top:70px;
-right:0;
-background:#111;
-flex-direction:column;
-width:220px;
-padding:20px;
 display:none;
 }
 
-nav.active{
-display:flex;
+.section{
+padding:90px 25px;
 }
 
-.logo{
-font-size:20px;
-}
-
-.hero{
-padding-top:80px;
-}
-}
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.55));
-pointer-events:none;
-}
-
-.hero{
-position:relative;
-}
-/* ===== TYPOGRAPHY FIX ===== */
-
-body{
-line-height:1.75;
-letter-spacing:0.3px;
--webkit-font-smoothing:antialiased;
--moz-osx-font-smoothing:grayscale;
-}
-
-/* headings */
-h1{
-font-size:28px;
-letter-spacing:1.2px;
-}
-
-h2{
-font-size:42px;
-line-height:1.25;
-letter-spacing:0.8px;
-margin-bottom:25px;
-}
-
-h3{
-line-height:1.35;
-letter-spacing:0.5px;
-}
-
-/* paragraphs */
-p{
-font-size:17px;
-line-height:1.9;
-letter-spacing:0.25px;
-margin-bottom:18px;
-}
-
-/* hero text breathing */
-.hero h2{
-font-size:48px;
-line-height:1.2;
-letter-spacing:1px;
-margin-bottom:18px;
-}
-
-.hero p{
-font-size:18px;
-letter-spacing:2px;
-opacity:0.9;
-}
-
-/* navigation spacing */
-nav a{
-letter-spacing:0.6px;
-font-size:15px;
 }

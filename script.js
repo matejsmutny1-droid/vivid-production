@@ -1,26 +1,7 @@
-const toggle=document.getElementById("menuToggle");
-const nav=document.getElementById("navMenu");
-
-toggle.addEventListener("click",()=>{
-nav.classList.toggle("active");
-});
-
-const reveals=document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll",()=>{
-reveals.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("active");
-}
-});
-});
 document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 anchor.addEventListener("click",function(e){
 e.preventDefault();
 document.querySelector(this.getAttribute("href"))
-.scrollIntoView({
-behavior:"smooth"
-});
+.scrollIntoView({behavior:"smooth"});
 });
 });
