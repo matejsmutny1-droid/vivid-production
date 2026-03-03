@@ -169,3 +169,57 @@ pointer-events:none;
 .hero{
 position:relative;
 }
+/* ===== TYPOGRAPHY FIX ===== */
+
+body{
+line-height:1.75;
+letter-spacing:0.3px;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+}
+
+/* headings */
+h1{
+font-size:28px;
+letter-spacing:1.2px;
+}
+
+h2{
+font-size:42px;
+line-height:1.25;
+letter-spacing:0.8px;
+margin-bottom:25px;
+}
+
+h3{
+line-height:1.35;
+letter-spacing:0.5px;
+}
+
+/* paragraphs */
+p{
+font-size:17px;
+line-height:1.9;
+letter-spacing:0.25px;
+margin-bottom:18px;
+}
+
+/* hero text breathing */
+.hero h2{
+font-size:48px;
+line-height:1.2;
+letter-spacing:1px;
+margin-bottom:18px;
+}
+
+.hero p{
+font-size:18px;
+letter-spacing:2px;
+opacity:0.9;
+}
+
+/* navigation spacing */
+nav a{
+letter-spacing:0.6px;
+font-size:15px;
+}
