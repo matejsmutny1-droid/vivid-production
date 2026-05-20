@@ -679,6 +679,104 @@ body{
 }
 
 }
+/* MOBILE MENU */
+
+.mobile-menu-button{
+    display:none;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+@media(max-width:768px){
+
+.mobile-menu-button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:fixed;
+    top:24px;
+    right:22px;
+
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(12px);
+
+    z-index:99999;
+
+    font-size:20px;
+    cursor:pointer;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:80px;
+    right:22px;
+
+    display:none;
+    flex-direction:column;
+    gap:18px;
+
+    padding:22px;
+
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    z-index:99999;
+
+    min-width:180px;
+}
+
+.mobile-menu a{
+    text-decoration:none;
+    color:#111;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.mobile-menu.active{
+    display:flex;
+}
+
+/* HERO MOBILE */
+
+.hero-content{
+    left:28px;
+    right:28px;
+    bottom:160px;
+}
+
+.hero-title{
+    font-size:58px;
+    line-height:0.92;
+    letter-spacing:-3px;
+}
+
+/* HERO BOTTOM */
+
+.hero-bottom{
+    left:28px;
+    right:28px;
+    bottom:36px;
+
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.hero-bottom div:last-child{
+    max-width:260px;
+    line-height:1.7;
+}
+
+}
 
 </style>
 </head>
@@ -727,12 +825,25 @@ Contact
 
 </nav>
 
+<div class="mobile-menu-button" onclick="toggleMobileMenu()">
+☰
+</div>
 <div class="lang-switch">
 <button onclick="setLanguage('sk')">SK</button>
 <button onclick="setLanguage('en')">EN</button>
 </div>
 
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#vision">Vision</a>
+<a href="capabilities.html">Experts</a>
+<a href="#contact">Contact</a>
+
+</div>
 
 <section class="hero">
 
@@ -743,8 +854,8 @@ Contact
 <div class="hero-content">
 
 <h1 class="hero-title"
-data-en="Designing experiences<br>that bring people together."
-data-sk="Navrhujeme zážitky,<br>ktoré spájajú ľudí.">
+data-en="Where culture, design and environment connect."
+data-sk="Kde sa prepája kultúra, dizajn a prostredie.">
 Designing experiences<br>that bring people together.
 </h1>
 
@@ -761,9 +872,9 @@ Designing experiences<br>that bring people together.
 <div>Vivid Production</div>
 
 <div
-data-en="Scandinavian Design • Sustainable Future • Human Connection"
-data-sk="Škandinávsky dizajn • Udržateľná budúcnosť • Ľudské prepojenie">
-Scandinavian Design • Sustainable Future • Human Connection
+data-en="Scandinavian Design • Sustainable Future • Art & Culture"
+data-sk="Škandinávsky dizajn • Udržateľná budúcnosť • Umenie & Kultúra">
+Scandinavian Design • Sustainable Future • Art & Culture
 </div>
 
 </div>
@@ -1086,17 +1197,15 @@ const savedLanguage = localStorage.getItem("language") || "en";
 
 setLanguage(savedLanguage);
 
+function toggleMobileMenu(){
+
+document
+.getElementById("mobileMenu")
+.classList.toggle("active");
+
+}
 </script>
 
-<div class="mobile-nav">
-
-<a href="#about">About</a>
-<a href="#work">Work</a>
-<a href="#vision">Vision</a>
-<a href="capabilities.html">Experts</a>
-<a href="#contact">Contact</a>
-
-</div>
 
 </body>
 </html>
