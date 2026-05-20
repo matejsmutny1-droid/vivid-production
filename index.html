@@ -576,6 +576,127 @@ body{
 
 }
 
+/* HERO */
+
+.hero{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+    background-image:url('hero.jpg');
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.08)
+    );
+    z-index:1;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+    position:absolute;
+    left:60px;
+    bottom:140px;
+    z-index:2;
+    color:white;
+    max-width:760px;
+}
+
+.hero-title{
+    font-size:72px;
+    line-height:0.96;
+    font-weight:300;
+    letter-spacing:-3px;
+    margin-bottom:30px;
+}
+
+.hero-tags{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:0.92;
+}
+
+.hero-bottom{
+    position:absolute;
+    left:60px;
+    right:60px;
+    bottom:26px;
+    z-index:2;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:0.75;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+    height:78vh;
+}
+
+.hero-image{
+    background-position:58% center;
+}
+
+.hero-content{
+    left:24px;
+    right:24px;
+    bottom:120px;
+    max-width:100%;
+}
+
+.hero-title{
+    font-size:48px;
+    line-height:0.98;
+    letter-spacing:-2px;
+    margin-bottom:22px;
+}
+
+.hero-tags{
+    font-size:10px;
+    gap:12px;
+    line-height:1.6;
+}
+
+.hero-bottom{
+    left:24px;
+    right:24px;
+    bottom:20px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+}
+
 </style>
 </head>
 
@@ -637,6 +758,33 @@ Contact
 <div class="hero-overlay"></div>
 
 <div class="hero-content">
+
+<h1 class="hero-title"
+data-en="Designing experiences<br>that bring people together."
+data-sk="Navrhujeme zážitky,<br>ktoré spájajú ľudí.">
+Designing experiences<br>that bring people together.
+</h1>
+
+<div class="hero-tags">
+
+
+
+</div>
+
+</div>
+
+<div class="hero-bottom">
+
+<div>Vivid Production</div>
+
+<div
+data-en="Scandinavian Design • Sustainable Future • Human Connection"
+data-sk="Škandinávsky dizajn • Udržateľná budúcnosť • Ľudské prepojenie">
+Scandinavian Design • Sustainable Future • Human Connection
+</div>
+
+</div>
+
 </div>
 
 </section>
