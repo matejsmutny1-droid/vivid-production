@@ -498,6 +498,9 @@ nav{
 .lang-switch{
     margin-left:0;
 }
+.mobile-nav{
+    display:none;
+}
 
 /* HERO */
 
@@ -635,6 +638,44 @@ nav{
 
 body{
     overflow-x:hidden;
+}
+
+}
+.mobile-nav{
+    display:none;
+}
+
+@media(max-width:768px){
+
+.mobile-nav{
+    display:flex;
+    position:fixed;
+    bottom:18px;
+    left:18px;
+    right:18px;
+
+    z-index:9999;
+
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(18px);
+
+    border-radius:100px;
+
+    justify-content:space-around;
+    align-items:center;
+
+    padding:16px 10px;
+
+    border:1px solid rgba(0,0,0,0.06);
+}
+
+.mobile-nav a{
+    text-decoration:none;
+    color:#111;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    opacity:0.75;
 }
 
 }
@@ -1046,6 +1087,16 @@ const savedLanguage = localStorage.getItem("language") || "en";
 setLanguage(savedLanguage);
 
 </script>
+
+<div class="mobile-nav">
+
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#vision">Vision</a>
+<a href="capabilities.html">Experts</a>
+<a href="#contact">Contact</a>
+
+</div>
 
 </body>
 </html>
