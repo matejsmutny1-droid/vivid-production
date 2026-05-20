@@ -4,115 +4,838 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vivid Production s.r.o.</title>
+<title>Vivid Production</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f3ee;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* NAVIGATION */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:28px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(245,243,238,0.72);
+    backdrop-filter:blur(16px);
+}
+
+.logo{
+    font-size:14px;
+    letter-spacing:3px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-size:14px;
+    opacity:0.55;
+    transition:0.3s;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+.lang-switch{
+    display:flex;
+    gap:10px;
+    margin-left:30px;
+}
+
+.lang-switch button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:0.45;
+    transition:.3s;
+    font-family:'Inter',sans-serif;
+}
+
+.lang-switch button:hover{
+    opacity:1;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    padding-top:95px;
+    background:#f5f3ee;
+}
+
+.hero-image{
+    width:100%;
+    height:auto;
+}
+
+.hero-image img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.04);
+}
+
+/* GENERAL SECTION */
+
+.section{
+    padding:140px 7%;
+}
+
+.kicker{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:0.45;
+    margin-bottom:28px;
+}
+
+.big-text{
+    font-size:clamp(32px,4vw,58px);
+    line-height:1.05;
+    font-weight:500;
+    letter-spacing:-2px;
+    max-width:700px;
+}
+
+.text{
+    margin-top:34px;
+    max-width:720px;
+    font-size:17px;
+    line-height:1.9;
+    color:#555;
+}
+
+/* IMAGE GRID */
+
+.image-grid{
+    padding:0 3% 120px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.image-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    height:680px;
+    background:#ddd;
+}
+
+.image-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1.2s ease;
+}
+
+.image-card:hover img{
+    transform:scale(1.04);
+}
+
+.image-gradient{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.52),
+        rgba(0,0,0,0.08)
+    );
+}
+
+.image-info{
+    position:absolute;
+    bottom:34px;
+    left:34px;
+    color:white;
+    z-index:2;
+}
+
+.image-info small{
+    display:block;
+    margin-bottom:12px;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    opacity:0.7;
+}
+
+.image-info h3{
+    font-size:28px;
+    line-height:1.15;
+    font-weight:400;
+    letter-spacing:-1px;
+}
+
+/* PARTNERS */
+
+.partners{
+    padding:140px 7%;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:90px;
+    align-items:start;
+    border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.partners-left h2{
+    font-size:clamp(28px,3vw,46px);
+    line-height:1.18;
+    font-weight:400;
+    letter-spacing:-1px;
+    max-width:500px;
+}
+
+.partners-right{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.partner-item{
+    display:flex;
+    gap:28px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.partner-logo{
+    width:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.partner-logo img{
+    width:auto;
+    max-width:78px;
+    max-height:52px;
+    height:auto;
+    object-fit:contain;
+    filter:grayscale(100%);
+    opacity:0.72;
+}
+
+.partner-text h3{
+    font-size:22px;
+    font-weight:500;
+    margin-bottom:12px;
+}
+
+.partner-text p{
+    font-size:16px;
+    line-height:1.8;
+    color:#555;
+    max-width:520px;
+}
+
+/* VISION */
+
+.vision{
+    padding:180px 7%;
+    border-top:1px solid rgba(0,0,0,0.06);
+    background:white;
+}
+
+.vision-top{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:90px;
+    align-items:start;
+    margin-bottom:100px;
+}
+
+.vision-left h2{
+    font-size:clamp(32px,4vw,58px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    font-weight:500;
+    max-width:700px;
+}
+
+.vision-right{
+    padding-top:70px;
+}
+
+.vision-right p{
+    font-size:17px;
+    line-height:1.9;
+    color:#555;
+    margin-bottom:34px;
+}
+
+.vision-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:24px;
+}
+
+.vision-image{
+    overflow:hidden;
+    border-radius:30px;
+    background:#ddd;
+    height:760px;
+}
+
+.vision-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform 1.2s ease;
+}
+
+.vision-image:hover img{
+    transform:scale(1.03);
+}
+
+/* CONTACT */
+
+.contact{
+    padding:180px 7% 200px;
+    border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.contact-label{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#8b8b8b;
+    margin-bottom:30px;
+}
+
+.contact h2{
+    font-size:clamp(32px,4vw,58px);
+    line-height:1.05;
+    letter-spacing:-2px;
+    font-weight:500;
+    max-width:700px;
+    margin-bottom:34px;
+}
+
+.contact p{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.7;
+    color:#555;
+    margin-bottom:60px;
+}
+
+.contact-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:22px 34px;
+    border:1px solid rgba(0,0,0,0.12);
+    border-radius:100px;
+    text-decoration:none;
+    color:#111;
+    font-size:18px;
+    transition:all .35s ease;
+    background:white;
+}
+
+.contact-button:hover{
+    transform:translateY(-2px);
+    border-color:#111;
+    background:#111;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    text-align:center;
+    font-size:12px;
+    opacity:0.4;
+}
+
+/* ANIMATION */
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1.2s ease;
+}
+
+.fade.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.vision-top{
+    grid-template-columns:1fr;
+}
+
+.vision-right{
+    padding-top:0;
+}
+
+.vision-grid{
+    grid-template-columns:1fr;
+}
+
+.image-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+    padding:22px;
+}
+
+nav{
+    display:none;
+}
+
+.section,
+.partners,
+.vision,
+.contact{
+    padding-left:22px;
+    padding-right:22px;
+}
+
+.image-card{
+    height:520px;
+}
+
+.vision-image{
+    height:420px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Vivid Production s.r.o.</h1>
-  <nav>
-    <a href="#about">O nás</a>
-    <a href="#services">Služby</a>
-    <a href="fakturacne-udaje.html">Fakturačné údaje</a>
-    <a href="#contact">Kontakt</a>
-  </nav>
+
+<div class="logo">
+Vivid Production
+</div>
+
+<nav>
+
+<a href="#about"
+data-sk="O nás"
+data-en="About">
+About
+</a>
+
+<a href="#work"
+data-en="Fields"
+data-sk="Oblasti"
+Work
+</a>
+
+<a href="#vision"
+data-sk="Vízia"
+data-en="Vision">
+Vision
+</a>
+
+<a href="capabilities.html"
+data-sk="Špecialisti"
+data-en="Experts">
+Capabilities
+</a>
+
+<a href="#contact"
+data-sk="Kontakt"
+data-en="Contact">
+Contact
+</a>
+
+
+
+</nav>
+
+<div class="lang-switch">
+<button onclick="setLanguage('sk')">SK</button>
+<button onclick="setLanguage('en')">EN</button>
+</div>
+
 </header>
 
 <section class="hero">
-  <h2>Creative Production & Digital Content</h2>
-  <p>Umenie • Produkcia • Digitálne riešenia</p>
-</section>
 
-<!-- O NAS -->
-<section id="about" class="section dark">
-  <h2>O nás</h2>
+<div class="hero-image">
+<img src="hero.jpg" alt="">
+</div>
 
-  <p>
-    Vivid Production s.r.o. sme založili v roku 2026 s cieľom vytvárať moderný,
-    autentický a vizuálne silný obsah pre značky, umelcov a projekty,
-    ktoré chcú komunikovať prirodzene a profesionálne.
-  </p>
-
-  <p>
-    Spájame umelecký prístup s technickým know-how a zastrešujeme kompletnú
-    kreatívnu produkciu — od prvotného konceptu až po finálnu realizáciu.
-  </p>
-
-  <p>
-    Pôsobíme predovšetkým na trhu na Slovensku, v Českej republike
-    a v krajinách Škandinávie, kde prepájame lokálnu autenticitu
-    s medzinárodným vizuálnym štandardom.
-  </p>
-
-  <p>
-    Veríme v jednoduchosť, kvalitné remeslo a osobný prístup.
-    Každý projekt vnímame individuálne a snažíme sa vytvárať obsah,
-    ktorý má atmosféru, charakter a dlhodobú hodnotu.
-  </p>
-</section>
-
-<!-- SLUZBY -->
-<section id="services" class="section">
-  <h2>Služby</h2>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-      <h3>Umelecká produkcia</h3>
-      <p>
-        Zastrešujeme kompletnú umeleckú a produkčnú realizáciu projektov —
-        koncerty, kultúrne podujatia, tanečné a umelecké projekty,
-        vystúpenia či firemné eventy.
-      </p>
-      <p>
-        Zabezpečujeme produkciu, organizáciu, dokumentáciu aj fotografovanie.
-        Realizujeme umelecké portréty, rodinné fotografovanie aj vizuálny obsah
-        pre jednotlivcov a značky.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h3>Digital & Content</h3>
-      <p>
-        Vytvárame moderný digitálny obsah pre značky a projekty —
-        fotografia produktov, eventov a kampaní,
-        tvorba video a photo contentu pre sociálne siete
-        aj digitálne marketingové kampane.
-      </p>
-      <p>
-        Navrhujeme a tvoríme webové stránky,
-        pomáhame so správou sociálnych sietí
-        a budovaním vizuálnej identity online komunikácie.
-      </p>
-    </div>
-
-    <div class="service-card">
-      <h3>Individuálne riešenia</h3>
-      <p>
-        Každý projekt je jedinečný, preto poskytujeme aj služby na mieru
-        podľa potrieb klienta. Prepájame produkciu, kreativitu,
-        technické riešenia a konzultácie tak, aby výsledok dával zmysel
-        po kreatívnej aj praktickej stránke.
-      </p>
-      <p>
-        Radi spolupracujeme na nových konceptoch, dlhodobých projektoch
-        aj jednorazových realizáciách.
-      </p>
-    </div>
-
-  </div>
+<div class="hero-overlay"></div>
 
 </section>
 
-<section id="contact" class="section dark">
-  <h2>Kontakt</h2>
-  <p>info@vividproduction.sk</p>
-  <p>© 2026 Vivid Production s.r.o.</p>
+<section class="section fade" id="about">
+
+<div class="kicker"
+data-sk="O nás"
+data-en="About">
+About
+</div>
+
+<div class="big-text"
+data-sk="Vytvárame moderné vizuálne, kultúrne a priestorové zážitky pre značky, komunity a verejné priestory."
+data-en="We create modern visual, cultural and spatial experiences for brands, communities and public spaces.">
+We create modern visual, cultural and spatial experiences for brands, communities and public spaces.
+</div>
+
+<div class="text"
+data-sk="Od digitálneho storytellingu a brandingu až po outdoor koncepty, live produkciu a kultúrne projekty - naša práca je postavená na atmosfére, emócii a autentickom ľudskom spojení."
+data-en="From digital storytelling and immersive branding to outdoor concepts, live production and cultural experiences - our work focuses on atmosphere, emotion and meaningful human connection.">
+From digital storytelling and immersive branding to outdoor concepts, live production and cultural experiences — our work focuses on atmosphere, emotion and meaningful human connection.
+</div>
+
 </section>
+
+<section class="image-grid" id="work">
+
+<div class="image-card fade">
+
+<img src="creative.jpg">
+
+<div class="image-gradient"></div>
+
+<div class="image-info">
+
+<small
+data-sk="Kreatíva & Digitál"
+data-en="Creative & Digital">
+Creative & Digital
+</small>
+
+<h3
+data-sk="Vizuálny storytelling<br>pre moderné značky."
+data-en="Visual storytelling<br>for modern brands.">
+Visual storytelling<br>for modern brands.
+</h3>
+
+</div>
+
+</div>
+
+<div class="image-card fade">
+
+<img src="outdoor.jpg">
+
+<div class="image-gradient"></div>
+
+<div class="image-info">
+
+<small
+data-sk="Outdoor prostredia"
+data-en="Outdoor Environments">
+Outdoor Environments
+</small>
+
+<h3
+data-sk="Moderný outdoor<br>inšpirovaný pohybom."
+data-en="Future public spaces<br>inspired by movement.">
+Future public spaces<br>inspired by movement.
+</h3>
+
+</div>
+
+</div>
+
+<div class="image-card fade">
+
+<img src="production.jpg">
+
+<div class="image-gradient"></div>
+
+<div class="image-info">
+
+<small
+data-sk="Kultúra & Produkcia"
+data-en="Culture & Production">
+Culture & Production
+</small>
+
+<h3
+data-sk="Atmosférické live a<br>hudobné zážitky."
+data-en="Immersive live and<br>music experiences.">
+Immersive live and<br>music experiences.
+</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="partners fade">
+
+<div class="partners-left">
+
+<div class="kicker"
+data-sk="Spolupráce"
+data-en="Selected Collaborations">
+Selected Collaborations
+</div>
+
+<h2
+data-sk="Dôveryhodné kreatívne a produkčné spolupráce naprieč komerčným, kultúrnym a verejným sektorom."
+data-en="Trusted production and creative collaborations across commercial, cultural and public sectors.">
+Trusted production and creative collaborations across commercial, cultural and public sectors.
+</h2>
+
+</div>
+
+<div class="partners-right">
+
+<div class="partner-item">
+
+<div class="partner-logo">
+<img src="dpd.png" alt="">
+</div>
+
+<div class="partner-text">
+
+<h3>DPD</h3>
+
+<p
+data-sk="Oficiálny dodávateľ a kreatívny produkčný partner pre vybrané vizuálne a prevádzkové projekty."
+data-en="Official supplier and creative production partner for selected visual and operational projects.">
+Official supplier and creative production partner for selected visual and operational projects.
+</p>
+
+</div>
+
+</div>
+
+<div class="partner-item">
+
+<div class="partner-logo">
+<img src="stvr.png" alt="">
+</div>
+
+<div class="partner-text">
+
+<h3>STVR</h3>
+
+<p
+data-sk="Spolupráca na rozsiahlych produkčných projektoch pre verejnoprávne vysielanie a live eventy."
+data-en="Large-scale production collaboration for national public broadcasting and live event projects.">
+Large-scale production collaboration for national public broadcasting and live event projects.
+</p>
+
+</div>
+
+</div>
+
+<div class="partner-item">
+
+<div class="partner-logo">
+<img src="vividhues.png" alt="">
+</div>
+
+<div class="partner-text">
+
+<h3>Vivid Hues</h3>
+
+<p
+data-sk="Nezávislý hudobný projekt zameraný na moderný alternatívny zvuk, vizuálnu identitu a medzinárodný umelecký smer."
+data-en="Independent music project focused on modern alternative sound, visual identity and international artistic direction.">
+Independent music project focused on modern alternative sound, visual identity and international artistic direction.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="vision" class="vision fade">
+
+<div class="vision-top">
+
+<div class="vision-left">
+
+<div class="kicker"
+data-sk="Vízia"
+data-en="Vision">
+Vision
+</div>
+
+<h2
+data-sk="Budúce prostredia formované kultúrou, dizajnom a ľudským prepojením."
+data-en="Future-focused environments shaped through culture, design and human connection.">
+Future-focused environments shaped through culture, design and human connection.
+</h2>
+
+</div>
+
+<div class="vision-right">
+
+<p
+data-sk="Veríme, že verejné priestory by mali byť rovnako emocionálne silné, inšpiratívne a premyslene navrhnuté ako interiérové prostredia."
+data-en="We believe public spaces should feel as emotionally engaging, inspiring and thoughtfully designed as interior environments.">
+We believe public spaces should feel as emotionally engaging, inspiring and thoughtfully designed as interior environments.
+</p>
+
+<p
+data-sk="Našou dlhodobou víziou je priniesť škandinávsky inšpirované outdoor koncepty, modulárnu architektúru a budúce verejné priestory do strednej Európy."
+data-en="Our long-term vision is to bring Scandinavian-inspired outdoor concepts, modular architecture and future public environments into Central Europe.">
+Our long-term vision is to bring Scandinavian-inspired outdoor concepts, modular architecture and future public environments into Central Europe.
+</p>
+
+<p
+data-sk="Zaujímajú nás projekty prepájajúce udržateľnosť, wellbeing, architektúru, pohyb a komunitne orientovaný život."
+data-en="We are particularly interested in projects that combine sustainability, wellbeing, architecture, movement and community-oriented living.">
+We are particularly interested in projects that combine sustainability, wellbeing, architecture, movement and community-oriented living.
+</p>
+
+</div>
+
+</div>
+
+<div class="vision-grid">
+
+<div class="vision-image">
+<img src="future-public.jpg" alt="">
+</div>
+
+<div class="vision-image">
+<img src="future-container.jpg" alt="">
+</div>
+
+</div>
+
+</section>
+
+<section class="contact fade" id="contact">
+
+<div class="contact-label"
+data-sk="KONTAKT"
+data-en="CONTACT">
+CONTACT
+</div>
+
+<h2
+data-sk="So sídlom na Slovensku.<br>Pôsobíme naprieč Európou."
+data-en="Based in Slovakia.<br>Working across Europe.">
+Based in Slovakia.<br>
+Working across Europe.
+</h2>
+
+<p
+data-sk="Kreatívna produkcia, outdoor prostredia a kultúrne spolupráce pre moderné značky, verejné priestory a projekty orientované na budúcnosť."
+data-en="Creative production, outdoor environments and cultural collaborations for modern brands, public spaces and future-focused projects.">
+Creative production, outdoor environments and cultural collaborations for modern brands, public spaces and future-focused projects.
+</p>
+
+<a class="contact-button" href="mailto:info@vividproduction.sk">
+info@vividproduction.sk
+</a>
+
+</section>
+
+<footer>
+© 2026 Vivid Production s.r.o.
+</footer>
+
+<script>
+
+const fades = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+
+});
+
+}, {
+threshold:0.15
+});
+
+fades.forEach(fade => {
+observer.observe(fade);
+});
+
+function setLanguage(lang){
+
+localStorage.setItem("language", lang);
+
+document.querySelectorAll("[data-sk]").forEach(el => {
+
+if(lang === "sk"){
+el.innerHTML = el.getAttribute("data-sk");
+}
+else{
+el.innerHTML = el.getAttribute("data-en");
+}
+
+});
+
+}
+
+const savedLanguage = localStorage.getItem("language") || "en";
+
+setLanguage(savedLanguage);
+
+</script>
 
 </body>
 </html>

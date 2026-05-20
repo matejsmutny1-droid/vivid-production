@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Capabilities — Vivid Production</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f3ee;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* NAV */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:28px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(245,243,238,0.72);
+    backdrop-filter:blur(16px);
+}
+
+.logo{
+    font-size:14px;
+    letter-spacing:3px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-size:14px;
+    opacity:0.55;
+    transition:0.3s;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+.lang-switch{
+    display:flex;
+    gap:10px;
+    margin-left:30px;
+}
+
+.lang-switch button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:0.45;
+    transition:.3s;
+    font-family:'Inter',sans-serif;
+}
+
+.lang-switch button:hover{
+    opacity:1;
+}
+
+/* HERO */
+
+.hero{
+    padding:220px 7% 140px;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+}
+
+.kicker{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:0.45;
+    margin-bottom:28px;
+}
+
+.hero h1{
+    font-size:clamp(48px,6vw,92px);
+    line-height:1.08;
+    letter-spacing:-2px;
+    font-weight:500;
+    max-width:1200px;
+    margin-bottom:54px;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.9;
+    color:#555;
+    max-width:820px;
+}
+
+/* GRID */
+
+.capabilities{
+    padding:120px 7%;
+}
+
+.cap-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+}
+
+.cap-card{
+    background:white;
+    border-radius:30px;
+    padding:46px;
+    border:1px solid rgba(0,0,0,0.06);
+    transition:.4s ease;
+}
+
+.cap-card:hover{
+    transform:translateY(-4px);
+}
+
+.cap-card span{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#999;
+    display:block;
+    margin-bottom:24px;
+}
+
+.cap-card h2{
+    font-size:36px;
+    line-height:1.05;
+    letter-spacing:-2px;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.cap-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.cap-list div{
+    padding:12px 18px;
+    background:#f5f3ee;
+    border-radius:100px;
+    font-size:15px;
+    color:#444;
+}
+
+/* STATEMENT */
+
+.statement{
+    padding:160px 7%;
+    border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.statement h2{
+    font-size:clamp(34px,4.6vw,64px);
+    line-height:1.08;
+    letter-spacing:-3px;
+    font-weight:500;
+    max-width:1000px;
+    margin-bottom:40px;
+}
+
+.statement p{
+    font-size:20px;
+    line-height:1.9;
+    color:#555;
+    max-width:760px;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:160px 7%;
+    border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.contact-label{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#8b8b8b;
+    margin-bottom:30px;
+}
+
+.contact h2{
+    font-size:clamp(36px,5vw,58px);
+    line-height:1.04;
+    letter-spacing:-2px;
+    font-weight:500;
+    max-width:700px;
+    margin-bottom:34px;
+}
+
+.contact p{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:50px;
+}
+
+.contact-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:22px 34px;
+    border:1px solid rgba(0,0,0,0.12);
+    border-radius:100px;
+    text-decoration:none;
+    color:#111;
+    font-size:18px;
+    transition:all .35s ease;
+    background:white;
+}
+
+.contact-button:hover{
+    transform:translateY(-2px);
+    border-color:#111;
+    background:#111;
+    color:white;
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+    text-align:center;
+    font-size:12px;
+    opacity:0.4;
+}
+
+/* ANIMATION */
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1.2s ease;
+}
+
+.fade.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.cap-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+    padding:22px;
+}
+
+nav{
+    display:none;
+}
+
+.hero{
+    padding:180px 22px 100px;
+}
+
+.capabilities{
+    padding:100px 22px;
+}
+
+.statement{
+    padding:120px 22px;
+}
+
+.contact{
+    padding:120px 22px;
+}
+
+.hero h1{
+    letter-spacing:-2px;
+}
+
+.cap-card{
+    padding:34px;
+}
+
+.hero p,
+.statement p,
+.contact p{
+    font-size:17px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Vivid Production
+</div>
+
+<nav>
+
+<a href="index.html"
+data-sk="Domov"
+data-en="Home">
+Home
+</a>
+
+<a href="index.html#work"
+data-sk="Projekty"
+data-en="Work">
+Work
+</a>
+
+<a href="index.html#vision"
+data-sk="Vízia"
+data-en="Vision">
+Vision
+</a>
+
+<a href="#contact"
+data-sk="Kontakt"
+data-en="Contact">
+Contact
+</a>
+
+</nav>
+
+<div class="lang-switch">
+<button onclick="setLanguage('sk')">SK</button>
+<button onclick="setLanguage('en')">EN</button>
+</div>
+
+</header>
+
+<section class="hero fade">
+
+<div class="kicker"
+data-sk="Možnosti"
+data-en="Capabilities">
+Capabilities
+</div>
+
+<h1
+data-sk="Postavené na spolupráci.<br>Doručené cez ľudí."
+data-en="Built through collaboration.<br>Delivered through people.">
+Built through collaboration.<br>
+Delivered through people.
+</h1>
+
+<p
+data-sk="Multidisciplinárna sieť kreatívcov, inžinierov, produkčných tímov a technických špecialistov vytvorená pre ambiciózne moderné projekty v oblasti kultúry, verejných priestorov a budúceho developmentu."
+data-en="A multidisciplinary network of creatives, engineers, production teams and technical specialists assembled around ambitious modern projects across culture, public environments and future-focused development.">
+A multidisciplinary network of creatives, engineers, production teams and technical specialists assembled around ambitious modern projects across culture, public environments and future-focused development.
+</p>
+
+</section>
+
+<section class="capabilities fade">
+
+<div class="cap-grid">
+
+<div class="cap-card">
+
+<span>01</span>
+
+<h2
+data-sk="Kreatívny Smer"
+data-en="Creative Direction">
+Creative Direction
+</h2>
+
+<div class="cap-list">
+<div data-sk="Brand Identita" data-en="Brand Identity">Brand Identity</div>
+<div data-sk="Fotografia" data-en="Photography">Photography</div>
+<div data-sk="Video Produkcia" data-en="Video Production">Video Production</div>
+<div data-sk="UGC Obsah" data-en="UGC Content">UGC Content</div>
+<div data-sk="Kampane" data-en="Creative Campaigns">Creative Campaigns</div>
+<div data-sk="Sociálne Médiá" data-en="Social Media">Social Media</div>
+<div data-sk="Storytelling" data-en="Storytelling">Storytelling</div>
+<div data-sk="Web Dizajn" data-en="Web Design">Web Design</div>
+<div data-sk="Kreatívna Stratégia" data-en="Creative Strategy">Creative Strategy</div>
+</div>
+
+</div>
+
+<div class="cap-card">
+
+<span>02</span>
+
+<h2
+data-sk="Produkcia & Kultúra"
+data-en="Production & Culture">
+Production & Culture
+</h2>
+
+<div class="cap-list">
+<div data-sk="Koncertná Produkcia" data-en="Concert Production">Concert Production</div>
+<div data-sk="Festivaly" data-en="Festivals">Festivals</div>
+<div data-sk="Stage Management" data-en="Stage Management">Stage Management</div>
+<div data-sk="Zvukový Dizajn" data-en="Sound Engineering">Sound Engineering</div>
+<div data-sk="Svetelný Dizajn" data-en="Lighting Design">Lighting Design</div>
+<div data-sk="Live Eventy" data-en="Live Events">Live Events</div>
+<div data-sk="Koordinácia Umelcov" data-en="Artist Coordination">Artist Coordination</div>
+<div data-sk="Hudobná Produkcia" data-en="Music Production">Music Production</div>
+<div data-sk="Technická Produkcia" data-en="Technical Production">Technical Production</div>
+</div>
+
+</div>
+
+<div class="cap-card">
+
+<span>03</span>
+
+<h2
+data-sk="Outdoor & Priestory"
+data-en="Outdoor & Spatial">
+Outdoor & Spatial
+</h2>
+
+<div class="cap-list">
+<div data-sk="Outdoor Koncepty" data-en="Outdoor Concepts">Outdoor Concepts</div>
+<div data-sk="Verejné Priestory" data-en="Public Spaces">Public Spaces</div>
+<div data-sk="Návrh Ihrísk" data-en="Playground Planning">Playground Planning</div>
+<div data-sk="Outdoor Gyms" data-en="Outdoor Gyms">Outdoor Gyms</div>
+<div data-sk="Modulárne Bývanie" data-en="Modular Living">Modular Living</div>
+<div data-sk="Kontajnerové Koncepty" data-en="Container Concepts">Container Concepts</div>
+<div data-sk="Komunitné Prostredia" data-en="Community Environments">Community Environments</div>
+<div data-sk="Priestorový Storytelling" data-en="Spatial Storytelling">Spatial Storytelling</div>
+<div data-sk="Urban Wellness" data-en="Urban Wellness">Urban Wellness</div>
+</div>
+
+</div>
+
+<div class="cap-card">
+
+<span>04</span>
+
+<h2
+data-sk="Technické & Stavebné"
+data-en="Technical & Construction">
+Technical & Construction
+</h2>
+
+<div class="cap-list">
+<div data-sk="Stavební Inžinieri" data-en="Civil Engineers">Civil Engineers</div>
+<div data-sk="Stavebný Dozor" data-en="Construction Supervision">Construction Supervision</div>
+<div data-sk="Elektrikárske Firmy" data-en="Electrical Contractors">Electrical Contractors</div>
+<div data-sk="Montážne Tímy" data-en="Installation Teams">Installation Teams</div>
+<div data-sk="Betónové Práce" data-en="Concrete Works">Concrete Works</div>
+<div data-sk="Zemné Práce" data-en="Groundworks">Groundworks</div>
+<div data-sk="Koordinácia Logistiky" data-en="Logistics Coordination">Logistics Coordination</div>
+<div data-sk="Výrobní Partneri" data-en="Fabrication Partners">Fabrication Partners</div>
+<div data-sk="Príprava Stavieb" data-en="Site Preparation">Site Preparation</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="statement fade">
+
+<h2
+data-sk="Ku každému projektu skladáme špecifické tímy. Prepájame kultúru, dizajn, inžiniering a realizáciu do jedného koordinovaného procesu."
+data-en="We assemble project specific teams around each vision. Combining culture, design, engineering and execution into one coordinated process."
+We assemble project-specific teams around each vision — combining culture, design, engineering and execution into one coordinated process.
+</h2>
+
+<p
+data-sk="Náš prístup stojí na dlhodobých spoluprácach, overených externých partneroch a multidisciplinárnom myslení naprieč kreatívnou produkciou, verejnými priestormi a budúcimi priestorovými konceptmi."
+data-en="Our approach is based on long-term collaborations, trusted external partners and multidisciplinary thinking across creative production, public environments and future-oriented spatial concepts.">
+Our approach is based on long-term collaborations, trusted external partners and multidisciplinary thinking across creative production, public environments and future-oriented spatial concepts.
+</p>
+
+</section>
+
+<section class="contact fade" id="contact">
+
+<div class="contact-label"
+data-sk="KONTAKT"
+data-en="CONTACT">
+CONTACT
+</div>
+
+<h2
+data-sk="Otvorení vybraným spoluprácam naprieč Európou."
+data-en="Open for selected collaborations across Europe.">
+Open for selected collaborations across Europe.
+</h2>
+
+<p
+data-sk="Spolupracujeme s mestami, developermi, kultúrnymi inštitúciami, značkami a partnermi orientovanými na moderné kreatívne a priestorové riešenia."
+data-en="We collaborate with municipalities, developers, cultural institutions, brands and future-focused partners looking for modern creative and spatial solutions.">
+We collaborate with municipalities, developers, cultural institutions, brands and future-focused partners looking for modern creative and spatial solutions.
+</p>
+
+<a class="contact-button" href="mailto:info@vividproduction.sk">
+info@vividproduction.sk
+</a>
+
+</section>
+
+<footer>
+© 2026 Vivid Production s.r.o.
+</footer>
+
+<script>
+
+const fades = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+
+});
+
+}, {
+threshold:0.15
+});
+
+fades.forEach(fade => {
+observer.observe(fade);
+});
+
+function setLanguage(lang){
+
+localStorage.setItem("language", lang);
+
+document.querySelectorAll("[data-sk]").forEach(el => {
+
+if(lang === "sk"){
+el.innerHTML = el.getAttribute("data-sk");
+}
+else{
+el.innerHTML = el.getAttribute("data-en");
+}
+
+});
+
+}
+
+const savedLanguage = localStorage.getItem("language") || "en";
+
+setLanguage(savedLanguage);
+
+</script>
+
+</body>
+</html>
