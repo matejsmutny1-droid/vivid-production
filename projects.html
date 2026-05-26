@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects — Vivid Production</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:#efede8;
+    color:#111;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+    padding:0 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(239,237,232,0.82);
+    backdrop-filter:blur(20px);
+    z-index:1000;
+}
+
+.logo{
+    text-decoration:none;
+    color:#111;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.24em;
+}
+
+.desktop-nav{
+    display:flex;
+    gap:42px;
+}
+
+.desktop-nav a{
+    text-decoration:none;
+    color:#7a7772;
+    font-size:14px;
+    transition:0.2s;
+}
+
+.desktop-nav a:hover{
+    color:#111;
+}
+
+.lang-switch{
+    display:flex;
+    gap:14px;
+    font-size:13px;
+    letter-spacing:0.18em;
+    color:#7a7772;
+}
+
+/* HERO */
+
+.projects-hero{
+    padding:170px 58px 120px;
+}
+
+.projects-label{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:#918d88;
+    margin-bottom:36px;
+}
+
+.projects-title{
+    font-size:72px;
+    line-height:0.9;
+    font-weight:300;
+    letter-spacing:-0.07em;
+    max-width:1100px;
+}
+
+/* PROJECT */
+
+.project{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    border-top:1px solid rgba(0,0,0,0.05);
+}
+
+.project-image{
+    position:absolute;
+    top:0;
+    right:0;
+    width:58%;
+    height:100%;
+    object-fit:cover;
+}
+
+.project-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        #efede8 0%,
+        rgba(239,237,232,0.96) 34%,
+        rgba(239,237,232,0.2) 68%,
+        rgba(239,237,232,0) 100%
+    );
+}
+
+.project-content{
+    position:relative;
+    z-index:2;
+    padding:140px 58px;
+    max-width:760px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    min-height:100vh;
+}
+
+.project-number{
+    font-size:12px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:#918d88;
+    margin-bottom:24px;
+}
+
+.project-title{
+    font-size:82px;
+    line-height:0.9;
+    font-weight:300;
+    letter-spacing:-0.07em;
+    margin-bottom:26px;
+}
+
+.project-category{
+    font-size:13px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:#7d7a76;
+    margin-bottom:42px;
+}
+
+.project-description{
+    font-size:28px;
+    line-height:1.45;
+    color:#5d5a56;
+    max-width:560px;
+    font-weight:300;
+}
+
+/* SECOND PROJECT */
+
+.project.dark .project-overlay{
+    background:linear-gradient(
+        90deg,
+        #111 0%,
+        rgba(17,17,17,0.95) 36%,
+        rgba(17,17,17,0.15) 72%,
+        rgba(17,17,17,0) 100%
+    );
+}
+
+.project.dark .project-content{
+    color:white;
+}
+
+.project.dark .project-category{
+    color:#b0aca7;
+}
+
+.project.dark .project-description{
+    color:#d7d2cd;
+}
+
+.project.dark .project-number{
+    color:#9d9892;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.desktop-nav{
+    display:none;
+}
+
+.projects-hero{
+    padding:140px 28px 90px;
+}
+
+.projects-title{
+    font-size:48px;
+}
+
+.project{
+    min-height:auto;
+}
+
+.project-image{
+    position:relative;
+    width:100%;
+    height:420px;
+}
+
+.project-overlay{
+    display:none;
+}
+
+.project-content{
+    min-height:auto;
+    padding:50px 28px 90px;
+    max-width:100%;
+}
+
+.project-title{
+    font-size:52px;
+}
+
+.project-description{
+    font-size:22px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+VIVID PRODUCTION
+</a>
+
+<nav class="desktop-nav">
+<a href="index.html#about">About</a>
+<a href="index.html#fields">Fields</a>
+<a href="index.html#vision">Vision</a>
+<a href="projects.html">Projects</a>
+<a href="index.html#experts">Experts</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+
+<div class="lang-switch">
+<span>SK</span>
+<span>EN</span>
+</div>
+
+</header>
+
+<section class="projects-hero">
+
+<div class="projects-label">
+SELECTED PROJECTS
+</div>
+
+<h1 class="projects-title">
+Creative production,<br>
+cultural environments<br>
+and future-focused concepts.
+</h1>
+
+</section>
+
+<!-- PROJECT 01 -->
+
+<section class="project">
+
+<img src="images/rha.jpg" class="project-image">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 01
+</div>
+
+<h2 class="project-title">
+Radio_Head Awards
+</h2>
+
+<div class="project-category">
+STVR / LIVE PRODUCTION
+</div>
+
+<p class="project-description">
+Production support and creative collaboration for one of Slovakia’s leading contemporary music and cultural broadcast events.
+</p>
+
+</div>
+
+</section>
+
+<!-- PROJECT 02 -->
+
+<section class="project dark">
+
+<img src="images/future-container.jpg" class="project-image">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<div class="project-number">
+PROJECT 02
+</div>
+
+<h2 class="project-title">
+Modular Outdoor Village
+</h2>
+
+<div class="project-category">
+CONCEPT DEVELOPMENT
+</div>
+
+<p class="project-description">
+Scandinavian inspired modular architecture concept focused on future outdoor environments, culture and contemporary living.
+</p>
+
+</div>
+
+</section>
+
+</body>
+</html>
