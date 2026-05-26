@@ -72,6 +72,7 @@ body{
     font-size:13px;
     letter-spacing:0.18em;
     color:#7a7772;
+    cursor:pointer;
 }
 
 /* HERO */
@@ -99,42 +100,16 @@ body{
 /* PROJECT */
 
 .project{
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
+    padding:120px 58px;
     border-top:1px solid rgba(0,0,0,0.05);
 }
 
-.project-image{
-    position:absolute;
-    top:0;
-    right:0;
-    width:58%;
-    height:100%;
-    object-fit:cover;
-}
-
-.project-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        #efede8 0%,
-        rgba(239,237,232,0.96) 34%,
-        rgba(239,237,232,0.2) 68%,
-        rgba(239,237,232,0) 100%
-    );
-}
-
-.project-content{
-    position:relative;
-    z-index:2;
-    padding:140px 58px;
-    max-width:760px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    min-height:100vh;
+.project-top{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:70px;
+    align-items:end;
+    margin-bottom:50px;
 }
 
 .project-number{
@@ -142,15 +117,15 @@ body{
     letter-spacing:0.28em;
     text-transform:uppercase;
     color:#918d88;
-    margin-bottom:24px;
+    margin-bottom:22px;
 }
 
 .project-title{
-    font-size:82px;
+    font-size:74px;
     line-height:0.9;
     font-weight:300;
     letter-spacing:-0.07em;
-    margin-bottom:26px;
+    margin-bottom:24px;
 }
 
 .project-category{
@@ -158,43 +133,89 @@ body{
     letter-spacing:0.22em;
     text-transform:uppercase;
     color:#7d7a76;
-    margin-bottom:42px;
+    margin-bottom:34px;
 }
 
 .project-description{
-    font-size:28px;
+    font-size:26px;
     line-height:1.45;
     color:#5d5a56;
     max-width:560px;
     font-weight:300;
 }
 
-/* SECOND PROJECT */
+/* GALLERY */
 
-.project.dark .project-overlay{
-    background:linear-gradient(
-        90deg,
-        #111 0%,
-        rgba(17,17,17,0.95) 36%,
-        rgba(17,17,17,0.15) 72%,
-        rgba(17,17,17,0) 100%
-    );
+.project-gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.project.dark .project-content{
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    cursor:pointer;
+    background:#ddd;
+    aspect-ratio:1/1;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:1.2s ease;
+    display:block;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.04);
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:40px;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:20px;
+}
+
+/* DARK PROJECT */
+
+.project.dark{
+    background:#111;
+}
+
+.project.dark .project-title{
     color:white;
-}
-
-.project.dark .project-category{
-    color:#b0aca7;
 }
 
 .project.dark .project-description{
     color:#d7d2cd;
 }
 
+.project.dark .project-category{
+    color:#9f9a95;
+}
+
 .project.dark .project-number{
-    color:#9d9892;
+    color:#817c77;
 }
 
 /* MOBILE */
@@ -214,31 +235,28 @@ body{
 }
 
 .project{
-    min-height:auto;
+    padding:90px 28px;
 }
 
-.project-image{
-    position:relative;
-    width:100%;
-    height:420px;
-}
-
-.project-overlay{
-    display:none;
-}
-
-.project-content{
-    min-height:auto;
-    padding:50px 28px 90px;
-    max-width:100%;
+.project-top{
+    grid-template-columns:1fr;
+    gap:34px;
 }
 
 .project-title{
-    font-size:52px;
+    font-size:48px;
 }
 
 .project-description{
     font-size:22px;
+}
+
+.project-gallery{
+    grid-template-columns:1fr;
+}
+
+.gallery-item{
+    aspect-ratio:4/3;
 }
 
 }
@@ -264,22 +282,28 @@ VIVID PRODUCTION
 </nav>
 
 <div class="lang-switch">
-<span>SK</span>
-<span>EN</span>
+<span onclick="setLanguage('sk')">SK</span>
+<span onclick="setLanguage('en')">EN</span>
 </div>
 
 </header>
 
+<!-- HERO -->
+
 <section class="projects-hero">
 
-<div class="projects-label">
+<div class="projects-label"
+data-sk="VYBRANÉ PROJEKTY"
+data-en="SELECTED PROJECTS">
 SELECTED PROJECTS
 </div>
 
-<h1 class="projects-title">
+<h1 class="projects-title"
+data-sk="Kreatívna produkcia,<br>kultúrne prostredia<br>a vízie budúcnosti."
+data-en="Creative production,<br>cultural environments<br>and future focused concepts.">
 Creative production,<br>
 cultural environments<br>
-and future-focused concepts.
+and future focused concepts.
 </h1>
 
 </section>
@@ -288,27 +312,65 @@ and future-focused concepts.
 
 <section class="project">
 
-<img src="images/rha.jpg" class="project-image">
+<div class="project-top">
 
-<div class="project-overlay"></div>
-
-<div class="project-content">
+<div>
 
 <div class="project-number">
 PROJECT 01
 </div>
 
-<h2 class="project-title">
+<h2 class="project-title"
+data-sk="Radio_Head Awards"
+data-en="Radio_Head Awards">
 Radio_Head Awards
 </h2>
 
-<div class="project-category">
-STVR / LIVE PRODUCTION
+<div class="project-category"
+data-sk="STVR / LIVE PRODUKCIA / SLOVENSKO"
+data-en="STVR / LIVE PRODUCTION / SLOVAKIA">
+STVR / LIVE PRODUCTION / SLOVAKIA
 </div>
 
-<p class="project-description">
+</div>
+
+<div>
+
+<p class="project-description"
+data-sk="Produkčná podpora a kreatívna spolupráca pre jedno z najvýznamnejších slovenských hudobných a kultúrnych podujatí."
+data-en="Production support and creative collaboration for one of Slovakia’s leading contemporary music and cultural broadcast events.">
 Production support and creative collaboration for one of Slovakia’s leading contemporary music and cultural broadcast events.
 </p>
+
+</div>
+
+</div>
+
+<div class="project-gallery">
+
+<div class="gallery-item">
+<img src="images/rha1.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/rha2.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/rha3.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/rha4.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/rha5.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/rha6.jpg" onclick="openLightbox(this.src)">
+</div>
 
 </div>
 
@@ -318,31 +380,177 @@ Production support and creative collaboration for one of Slovakia’s leading co
 
 <section class="project dark">
 
-<img src="images/future-container.jpg" class="project-image">
+<div class="project-top">
 
-<div class="project-overlay"></div>
-
-<div class="project-content">
+<div>
 
 <div class="project-number">
 PROJECT 02
 </div>
 
-<h2 class="project-title">
+<h2 class="project-title"
+data-sk="Modulárna Outdoor Village"
+data-en="Modular Outdoor Village">
 Modular Outdoor Village
 </h2>
 
-<div class="project-category">
+<div class="project-category"
+data-sk="KONCEPT DEVELOPMENT"
+data-en="CONCEPT DEVELOPMENT">
 CONCEPT DEVELOPMENT
 </div>
 
-<p class="project-description">
+</div>
+
+<div>
+
+<p class="project-description"
+data-sk="Koncept modulárnej architektúry inšpirovaný škandinávskym dizajnom, modernými outdoor priestormi a komunitným životom."
+data-en="Scandinavian inspired modular architecture concept focused on future outdoor environments, culture and contemporary living.">
 Scandinavian inspired modular architecture concept focused on future outdoor environments, culture and contemporary living.
 </p>
 
 </div>
 
+</div>
+
+<div class="project-gallery">
+
+<div class="gallery-item">
+<img src="images/village1.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/village2.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/village3.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/village4.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/village5.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/village6.jpg" onclick="openLightbox(this.src)">
+</div>
+
+</div>
+
 </section>
+
+<!-- PROJECT 03 -->
+
+<section class="project">
+
+<div class="project-top">
+
+<div>
+
+<div class="project-number">
+PROJECT 03
+</div>
+
+<h2 class="project-title"
+data-sk="Eco House Transformation"
+data-en="Eco House Transformation">
+Eco House Transformation
+</h2>
+
+<div class="project-category"
+data-sk="RAJECKÉ TEPLICE / ECO RENOVÁCIA"
+data-en="RAJECKÉ TEPLICE / ECO RENOVATION">
+RAJECKÉ TEPLICE / ECO RENOVATION
+</div>
+
+</div>
+
+<div>
+
+<p class="project-description"
+data-sk="Premena zanedbaného vidieckeho domu na moderný ekologický priestor s fotovoltikou a prírodnými materiálmi."
+data-en="Transformation of a neglected rural house into a contemporary eco conscious home with photovoltaic roofing and natural materials.">
+Transformation of a neglected rural house into a contemporary eco conscious home with photovoltaic roofing and natural materials.
+</p>
+
+</div>
+
+</div>
+
+<div class="project-gallery">
+
+<div class="gallery-item">
+<img src="images/eco1.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/eco2.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/eco3.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/eco4.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/eco5.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div class="gallery-item">
+<img src="images/eco6.jpg" onclick="openLightbox(this.src)">
+</div>
+
+</div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+<script>
+
+function openLightbox(src){
+document.getElementById('lightbox').classList.add('active');
+document.getElementById('lightbox-img').src = src;
+}
+
+function closeLightbox(){
+document.getElementById('lightbox').classList.remove('active');
+}
+
+function setLanguage(lang){
+
+localStorage.setItem("language", lang);
+
+document.querySelectorAll("[data-sk]").forEach(el => {
+
+if(lang === "sk"){
+el.innerHTML = el.getAttribute("data-sk");
+}
+else{
+el.innerHTML = el.getAttribute("data-en");
+}
+
+});
+
+}
+
+const savedLanguage = localStorage.getItem("language") || "en";
+
+setLanguage(savedLanguage);
+
+</script>
 
 </body>
 </html>
